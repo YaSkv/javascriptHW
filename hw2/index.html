@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Второе домашнее задание по JS
+	</title>
+	<meta charset="utf-8">
+	<style>
+		span {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<h2>
+		Первое задание
+	</h2>
+	<div>
+		<code>
+			var a = 1, b = 1, c, d;	<span>Объявляем переменные</span><br>
+			c = ++a; alert(c); // 2 <span>В данном случае используется префиксный инкремент, то есть увеличение 'а' на единицу пройзодет 								раньше чем значение 'а' будет присвоенно переменной 'с'</span><br> 
+			d = b++; alert(d); // 1 <span>в данном случае использован постфиксный инкремент, то есть значение переменной 'b' будет увеличенно 							на единицу уже после того как будет присвоенно переменной 'd'</span><br>
+			c = (2+ ++a); alert(c); // 5 <span>здесь как и в первом примере за счет префиксного инкремента переменная 'а' сначала увеличивает 							на единицу, и становиться 3 (так как до этого уже увеличивалась на единицу в первой строке), и только 								после этого прибавляется к 2</span><br> 
+			d = (2+ b++); alert(d); // 4 <span>Здесь переменная сначала добавляется к двойке, а только после этого увеличивается на единицу</span><br>
+			alert(a); // 3 <span>логично что в итоге что 'а', что 'b' дважды увеличившись на единицу стали равны 3</span><br>
+			alert(b); // 3<br>
+		</code>
+	</div>
+	<h2>Второе задание</h2>
+	<div>
+		<code>
+			var a = 2;<br>
+			var x = 1 + (a*=2); <!-- x будет равен 5, так как выражение a*=2 можно также написать как а = а*2  -->
+		</code>
+	</div>
+	<h2>
+		Третье задание
+	</h2>
+	<div>
+		<p id="p3hw">
+			
+		</p>
+		<script>
+		var a = parseInt(prompt('Введите первое число', 5));
+		var b = parseInt(prompt('Введите второе число',-34));
+		
+		function hwthird (x,y) {
+			if ((x>=0) && (y>=0)) {
+				
+
+				document.getElementById('p3hw').innerHTML= 'Итоговое значение числа: '+(x-y);
+			}
+			if ((x<0) && (y<0)) {
+				document.getElementById('p3hw').innerHTML= 'Итоговое значение числа: '+(x*y);
+			}
+			if (((x>=0) && (y<0))||((x<0) && (y>=0))) {
+				document.getElementById('p3hw').innerHTML= 'Итоговое значение числа: '+(x+y);
+			}
+		}
+		hwthird(a,b);
+
+		</script>
+		
+	</div>
+	<h2>
+		Четвертое задание
+	</h2>
+	<div>
+		<script>
+			var a = 4
+			switch(a) {
+				case 4:
+				document.write('4, ');
+				case 5:
+				document.write('5, ');
+				case 6:
+				document.write('6, ');
+				case 7:
+				document.write('7, ');
+				case 8:
+				document.write('8, ');
+				case 9:
+				document.write('9, ');
+				case 10:
+				document.write('10, ');
+				case 11:
+				document.write('11, ');
+				case 12:
+				document.write('12, ');
+				case 13:
+				document.write('13, ');
+				case 14:
+				document.write('14, ');
+				case 15:
+				document.write('15, ');
+
+				} 
+		</script>
+	</div>
+	<h2>
+		Пятое задание
+	</h2>
+	<div>
+		<script>
+			function fivehw_plus(x,y) {
+				return x+y
+			}
+			function fivehw_minus(x,y) {
+				return x-y
+			}
+			function fivehw_mnog(x,y) {
+				return x*y
+			}
+			function fivehw_delen(x,y) {
+				return x/y
+			}
+		</script>
+	</div>
+	<h2>
+		Шестое задание
+	</h2>
+	<div>
+		<script>
+		function sixHw(arg1, arg2, operation) {
+			switch (operation) {
+				case 'сложение':
+				return (arg1+arg2);
+				case 'вычетание':
+				return (arg1-arg2);
+				case 'умножение':
+				return (arg1*arg2);
+				case 'деление':
+				return (arg1/arg2);
+				default :
+				return ('Мне не известна эта операция')
+
+			}
+		}
+		var ar1 = prompt('Введите первое число', 1);
+		var ar2 = prompt('Введите второе число', 2);
+		var operation = prompt('Выберите математическую операцию сложение/вычетание/умножение/деление', 'сложение');
+		document.write(sixHw(ar1, ar2, operation));
+		</script>
+	</div>
+	<h2>
+		Седьмое задание
+	</h2>
+	<div>
+		<script>
+			document.write(null==0);
+		</script>
+		<span>
+			Такой результат получается так как null это фактически пустое значение, то есть его отсутствие, а ноль это число, таким образом равенство не может быть верным
+		</span>
+	</div>
+	<h2>
+		Восьмое задание
+	</h2>
+	<div>
+		<script>
+			function power(val,pow) {
+				if (pow!=1) {
+				return val*power(val,pow-1);
+				}
+				else {
+					return val;
+				}
+			}
+			
+		</script>
+
+	</div>
+</body>
+</html>

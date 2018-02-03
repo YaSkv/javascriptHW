@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3 задание по JS</title>
+</head>
+<body>
+<h2>
+	Первое задание
+</h2>
+<div>
+	<script>
+		var i = 0;
+		while(i<=100) {
+			if ((i%2!=0) && (i%3!=0)) {
+				document.write (i+' ')
+			}
+			i++
+		}
+	</script>
+</div>
+<h2>
+	Второе задание
+</h2>
+<div>
+	<script>
+		var x = 0, zero = 'Это ноль', nechet = 'Нечетное число ', chet = 'Четное число ';
+		do {
+			var y
+			if (x==0) {
+				y=zero;
+			}
+			else if (x%2==0) {
+				y=chet;
+			}
+			else {
+				y=nechet;
+			}
+			document.write (x + ' - ' + y +'<br>');
+			x++;
+		}
+		while(x<=10);
+	</script>
+</div>
+<h2>
+	Третье задание
+</h2>
+<div>
+	<script>
+		for (var i = 0 ; i <= 9; document.write(i + ' '), i++)
+		 {
+			
+		}
+	</script>
+</div>
+<h2>
+	Четвертое задание
+</h2>
+<div>
+	<script>
+		var f = 'x';
+		do {
+			document.write(f+'<br>');
+			f+='x';
+		}
+		while(f.length<=20);
+	</script>
+</div>
+</body>
+</html>

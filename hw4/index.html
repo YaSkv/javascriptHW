@@ -5,48 +5,55 @@
 	<title>первая часть четвертой HW</title>
 </head>
 <body>
-<script>
-	var value, key, arr = [], num = prompt('Введите число от 0 до 999', 0);
-	numthing(num);
-	num = num.split('', 3);
-		num = num.reverse();
-		for (i=0; i<3; i++) {
-			if (num[i]==undefined){
-				num[i]=0;
+	<script>
+		var value, key, arr = [], num = prompt('Введите число от 0 до 999', 0);
+		
+		if (num<0) {
+			num=-num;
+			numthing(num)
+		}
+		else {
+			middle(num)
+		}
+		
+		
+
+		/*Проверяет верность введенных данных*/
+		function numthing (y) {
+			if ((Number(y)>=1000) || isNaN(y)==true) {
+				alert('Вы ввели что-то не так');
+				y = [];
+				return (y);
+			}
+			else {
+				middle(y)
+			}
+
+		}
+		/*Преобразует значение в строку, строку в массив, а также заменяет пустые значения нулями*/
+		function middle(y) {
+			num=num.toString();
+			num = num.split('', 3);
+			num = num.reverse();
+			for (i=0; i<3; i++) {
+				if (num[i]==undefined){
+					num[i]=0;
+				}
+			}
+			arr['сотен'] = num[2];
+			arr['десятков'] = num[1];
+			arr['единиц'] = num[0];
+			print (arr);
+		}
+
+		/*Выводит данные на страницу*/
+		function print (z){
+			for (key in z) {
+				value = z[key];
+				document.write(key+': '+value+'<br>');
+
 			}
 		}
-	arr['сотен'] = num[2];
-	arr['десятков'] = num[1];
-	arr['единиц'] = num[0];
-	print (arr);
-
-	/*Проверяет верность введенных данных*/
-	function numthing (y) {
-		if ((Number(y)>=1000) || isNaN(y)==true) {
-		alert('Вы ввели что-то не так');
-		y= [''];
-		return (y);
-	}
-	}
-	/*Преобразует строку в массив, а также заменяет значение undefined на 0*/
-/*	function rever(x) {
-		x = x.split('', 3);
-		x = x.reverse();
-		for (i=0; i<3; i++) {
-			if (x[i]==undefined){
-				x[i]=0;
-			}
-		}
-	}*/
-	
-	/*Выводит данные на страницу*/
-	function print (z){
-	for (key in z) {
-		value = z[key];
-		document.write(key+': '+value+'<br>');
-
-	}
-}
-</script>
+	</script>
 </body>
 </html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Пятое задание</title>
+</head>
+<style>
+	table tr td {
+		width: 84px;
+		height: 84px;
+		vertical-align: center;
+		text-align: center;
+	}
+	table {
+		border-spacing: 0;
+		margin: auto;
+	}
+	.img-chess {
+		background: url(chess.jpg) no-repeat;
+	}
+	.b-elifant {
+		background-position: 0 0px;
+	}
+	.b-horse {
+		background-position: -84px 0px;
+	}
+	.b-knight {
+		background-position: -168px 0px;
+	}
+	.b-queen {
+		background-position: -252px 0px;
+	}
+	.b-king {
+		background-position: -336px 0px;
+	}
+	.b-soldate {
+		background-position: 0 -84px;
+	}
+	.w-elifant {
+		background-position: 0 -252px;
+	}
+	.w-horse {
+		background-position: -84px -252px;
+	}
+	.w-knight {
+		background-position: -168px -252px;
+	}
+	.w-queen {
+		background-position: -252px -252px;
+	}
+	.w-king {
+		background-position: -336px -252px;
+	}
+	.w-soldate {
+		background-position: 0 -168px;
+	}
+	/*сделаю спрайт для отображения фигур шахмат, с шагом в 84 px*/
+</style>
+<body>
+<script>
+	var b_figure = ['class="img-chess b-elifant"', 'class="img-chess b-horse"', 'class="img-chess b-knight"', 'class="img-chess b-queen"', 'class="img-chess b-king"', 'class="img-chess b-soldate"'];
+	var w_figure = ['class="img-chess w-elifant"', 'class="img-chess w-horse"', 'class="img-chess w-knight"', 'class="img-chess w-queen"', 'class="img-chess w-king"', 'class="img-chess w-soldate"'];
+	var chess = '<table>';
+	var arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+	chess = chess+tr();
+	chess += '</table>'
+
+
+
+	document.write(chess)
+	function tr(){
+		var x='';
+		for(var n = 0; n<9 ; n++) {
+	
+		x+=td(n);
+
+
+
+	}
+	return x;
+	}
+	function td (n) {
+		var x='';
+		x+= '<tr>';
+
+		for (var i=0; i<9; i++) {
+			if ((n==0)&&(i>0)){
+			x+=color(n,i)+arr[i-1]+'</td>';
+		}
+			else if ((i==0)&&(n>0)) {
+			x+=color(n,i)+n+'</td>';
+		}
+		
+		else { x+=color(n,i)+'</td>';
+		}
+				}
+		x+='</tr>'
+		return x;
+	}
+	function color(n,i) {
+		if ((n>0)&&(i>0))
+		{
+		if (n==1) {
+			if ((i==1)||(i==8)) {
+				return '<td '+b_figure[0]+'">'
+			}
+			else if ((i==2)||(i==7)) {
+				return '<td '+b_figure[1]+'">'
+			}
+			else if ((i==3)||(i==6)) {
+				return '<td '+b_figure[2]+'">'
+			}
+			else if (i==4) {
+				return '<td '+b_figure[3]+'">'
+			}
+			else if (i==5) {
+				return '<td '+b_figure[4]+'">'
+			}
+			
+			
+			
+		}
+		if (n==2) {
+
+				return '<td '+b_figure[5]+'">'
+
+			}
+		if (n==8) {
+			if ((i==1)||(i==8)) {
+				return '<td '+w_figure[0]+'">'
+			}
+			else if ((i==2)||(i==7)) {
+				return '<td '+w_figure[1]+'">'
+			}
+			else if ((i==3)||(i==6)) {
+				return '<td '+w_figure[2]+'">'
+			}
+			else if (i==4) {
+				return '<td '+w_figure[3]+'">'
+			}
+			else if (i==5) {
+				return '<td '+w_figure[4]+'">'
+			}
+			
+			
+			
+		}
+		if (n==7) {
+
+				return '<td '+w_figure[5]+'">'
+
+			}
+		else if ((n%2==0)&&(i%2!=0)){
+			return '<td style="background-color:black;">';
+		}
+		else if ((n%2!=0)&&(i%2==0)) {
+			return '<td style="background-color:black;">';
+			}
+		else {
+			return '<td>';
+		}
+		}
+		else {
+			return '<td>';
+		}
+	}
+</script>
+</body>
+</html>

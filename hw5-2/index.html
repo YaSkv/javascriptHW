@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Вторая версия шахмат</title>
+	<style>
+	table {
+		margin: 0 auto;
+	}
+	table tr td{
+		width: 80px;
+		height: 80px;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<script>
+		var numbers = ['1','2','3','4','5','6','7','8'];
+		var grafs	= ['A','B','C','D','E','F','G','H'];
+		var w_figure = ['&#9812;','&#9813;','&#9814;','&#9815;','&#9816;','&#9817;']
+		var b_figure = ['&#9818;','&#9819;','&#9820;','&#9821;','&#9822;','&#9823;']
+	  	var table=document.createElement("table");
+	  	var sizeFonts = '50px';
+	 	for (var n = 0; n<10; n++){
+	 		var tr =table.insertRow(n)
+	 		for (var i = 0; i < 10; i++) {
+	 			var td = tr.insertCell(i);
+	 			if (n==1) {
+	 				if (i==1 || i==8) {
+	 					td.innerHTML=(b_figure[2])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 				else if (i==2 || i==7) {
+	 					td.innerHTML=(b_figure[4])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 				else if (i==3 || i==6) {
+	 					td.innerHTML=(b_figure[3])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 				else if (i==4) {
+	 					td.innerHTML=(b_figure[0])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 				else if (i==5) {
+	 					td.innerHTML=(b_figure[1])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 			}
+	 			else if((n==2) && (i>0) && (i<9)) {
+						td.innerHTML=(b_figure[5])
+						td.style.fontSize=sizeFonts
+	 			}
+	 			if (n==8) {
+	 				if (i==1 || i==8) {
+	 					td.innerHTML=(w_figure[2])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 				else if (i==2 || i==7) {
+	 					td.innerHTML=(w_figure[4])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 				else if (i==3 || i==6) {
+	 					td.innerHTML=(w_figure[3])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 				else if (i==4) {
+	 					td.innerHTML=(w_figure[0])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 				else if (i==5) {
+	 					td.innerHTML=(w_figure[1])
+	 					td.style.fontSize=sizeFonts
+	 				}
+	 			}
+	 			else if((n==7) && (i>0) && (i<9)) {
+						td.innerHTML=(w_figure[5])
+						td.style.fontSize=sizeFonts
+	 			}
+	 			if ((n>0) && (n<9) && (i>0) && (i<9)) {
+	 				if ((n%2==0)&&(i%2!=0)){
+						td.style.backgroundColor='rgba(209,169,46,0.5)'
+					}
+					else if ((n%2!=0)&&(i%2==0)){
+						td.style.backgroundColor='rgba(209,169,46,0.5)'
+					}
+					else {
+						td.style.backgroundColor='grey'
+					}
+	 			}
+	 			else if (((i>0) && (i<9)) && ((n==9) || (n==0))) {
+	 				td.innerHTML=(numbers[i-1])
+	 				if (n==0) {
+	 					td.style.transform='rotate(180deg)'
+	 				}
+	 			}
+	 			else if (((i==0) || (i==9)) && ((n>0) && (n<9))) {
+	 				td.innerHTML=(grafs[n-1])
+	 				if (i==9) {
+	 					td.style.transform='rotate(180deg)'
+	 				}
+	 			}
+	 		}
+	 	}
+		document.body.appendChild(table);
+	</script>
+
+</body>
+</html>

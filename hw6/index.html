@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>6 дз</title>
+	<script>
+	
+	window.onload = function () {
+		var div = document.getElementById('full_img');
+		var appDivnone = document.getElementById('full_img');
+		var image = document.getElementsByTagName('img');
+		for(var i = 0; i<image.length; i++) {
+			image[i].onclick = change_full_img;
+		}
+		appDivnone.onclick = none_img;
+	}
+
+	function change_full_img(event) {
+		var appDiv = document.getElementById('full_img');
+		appDiv.innerHTML = '';
+		var eventElement = event.target;
+		var imageNameParts = eventElement.id.split('_');
+		var src = 'img_full/'+ imageNameParts[1] +'.jpg';
+		var imageDOMElement = document.createElement('img');
+		imageDOMElement.src = src;
+		appDiv.appendChild(imageDOMElement).style.display = "none";
+		imageDOMElement.onload = function () {
+			imageDOMElement.style.display = "block";
+		}
+		imageDOMElement.onerror = function() {
+			appDiv.removeChild(imageDOMElement);
+			alert("Ищут пожарные, ищет полиция, но картинку увы не нашли")
+		}
+		var div = document.getElementById('full_img');
+		if (div.style.display == "none") {
+			
+			div.style.display = "block";
+		}
+
+	}
+	function none_img (event) {
+	var div = document.getElementById('full_img');
+	div.style.display = "none";
+	}
+</script>
+</head>
+<body>
+
+<div id=full_img>Здесь биг пикча</div>
+<div>
+	<img id=img_1 src="img_min/1.jpg" >
+	<img id=img_2 src="img_min/2.jpg">
+	<img id=img_3 src="img_min/3.jpg" height="225px">
+</div>
+</body>
+</html>

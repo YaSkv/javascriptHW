@@ -4,83 +4,118 @@
 	<title>вторая часть шестого задания</title>
 	<meta charset="utf-8">
 	<style>
-		.cart {
-			background-color: grey;
-			width: 25%;
-			min-height: 350px;
-			float: left;
-		}
-		.products {
-			display: flex;
-			justify-content: center;
+	.cart {
+		background-color: grey;
+		width: 15%;
+		min-height: 350px;
+		float: left;
+		padding-left: 20px;
+		text-align: left;
+	}
+	.cart h2{
+		text-align: center;
+	}
+	.products {
+		display: flex;
+		justify-content: center;
+
+	}
+	.p-single {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		text-align: center;
+		height: 450px;
+
+
+	}
+	img {
+		width: 350px;
+		height: 250px;
+	}
+	button {
+		width: 150px;
+		margin: 0 auto;
+	}
+</style>
+<script>
+
+	window.onload = function () {
+		var price = [250,100,150];
+		var sold1 = document.getElementById('sold_1');
+		var sold2 = document.getElementById('sold_2');
+		var sold3 = document.getElementById('sold_3');
+		var cart = 0;
+		var money = 0;
+		document.getElementById('cart').innerHTML = cart;
+		document.getElementById('money').innerHTML = money + '$';
+		var priceing = document.getElementsByClassName('price_good');
+		for (var i=0; i<3; i++) {
+			priceing[i].innerHTML=price[i];
 
 		}
-		.p-single {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			text-align: center;
-			height: 450px;
-
+		sold1.onclick = testus;
+		sold2.onclick = testus;
+		sold3.onclick = testus;
+		dropping.onclick = droppinG;
+		//Функция для перехвата действия
+		function testus (event){
+			var eventElement = event.target;
+			var massiveId = eventElement.id.split('_');
+			var t = massiveId[1];
+			money += price[t-1];
+			cart++
+			document.getElementById('cart').innerHTML = cart;
+			document.getElementById('money').innerHTML = money + '$';
 		}
-	</style>
-	<script>
-		var total_price = 0;
-		var how_goods
-		var product = document.getElementsByTagName('button');
-		function add_cart(i){
-			var cart_total = document.getElementsByClassName('price_good')
-			var money = document.getElementsByClassName('money')
-			
-			money.innerHTML += cart_total[i].innerHTML
-				
-
+		function droppinG (event){
+			cart = 0;
+			money = 0;
+			document.getElementById('cart').innerHTML = cart;
+			document.getElementById('money').innerHTML = money + '$';
 		}
-		window.onload = function () {
-		var testus = document.getElementsByTagName('button');
+	}
+	
 
-		for (var i = 0; i < testus.length; i++) {
-		
-			testus[i].onclick = add_cart;
-		}
-		
-			}
 
-	</script>
+</script>
 </head>
 <body>
-<div id=main>
-<div class=cart>
-	<h2> Корзина</h2>
-	<div class="how_goods">
-		0
-	</div>
-	<div class="money">
-		0
-	</div>
-</div>
-<div class=products>
-	<div class="p-single">
-		<img class="img_good" src="img_min/1.jpg">
-		<span class="name_good">Изумруд</span>
-		<span class="price_good">$250</span>
-		<button>купить</button>
-	</div>
-	<div class="p-single">
-		<img class="img_good" src="img_min/2.jpg">
-		<span class="name_good">Рубин</span>
-		<span class="price_good">$100</span>
-		<button>купить</button>
-	</div>
-	<div class="p-single">
-		<img class="img_good" src="img_min/3.jpg">
-		<span class="name_good">Сапфир</span>
-		<span class="price_good">$150</span>
-		<button>купить</button>
-	</div>
-</div>
+	<div id=main>
+		<div class=cart>
+			<h2> Корзина</h2>
+			<div class="how_goods">
+				<p>количество покупок <span id="cart"></span></p>
+			</div>
+			<div class="money">
+				<p>общая сумма покупок <span id="money"></span></p>
+			</div>
+			<div class="drop">
+				<button id="dropping">Очистить корзину</button>
+			</div>
+		</div>
+		<div class=products>
+			<div class="p-single">
+				<img class="img_good" src="img_min/1.jpg">
+				<span class="name_good">Изумруд</span>
+				<p><span class="price_good"></span>$</p>
+				<button id="sold_1">купить</button>
+			</div>
+			<div class="p-single">
+				<img class="img_good" src="img_min/2.jpg">
+				<span class="name_good">Рубин</span>
+				<p><span class="price_good"></span>$</p>
+				<button id="sold_2">купить</button>
+			</div>
+			<div class="p-single">
+				<img class="img_good" src="img_min/3.jpg">
+				<span class="name_good">Сапфир</span>
+				<p><span class="price_good"></span>$</p>
+				<button id="sold_3">купить</button>
+			</div>
+		</div>
 
-</div>
+	</div>
 
 </body>
 </html>
